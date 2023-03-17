@@ -1,1 +1,5 @@
-# sibsutis-schedule
+> **Внимание!**
+> Проект находится в разработке. README будет переписан после окончания разработки.
+* * *
+
+**Руководство по написанию чистого кода на JS:** https://github.com/BoryaMogila/clean-code-javascript-ru/
