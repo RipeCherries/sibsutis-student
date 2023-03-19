@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "sibsutis-schedule",
+    "slug": "sibsutis-schedule",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "sibsutis-schedule"
+}
