@@ -1,11 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Group from "./src/components/Group";
+import SearchField from "./src/components/SearchField";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello World!</Text>
-      <StatusBar style="auto" />
+    <View>
+      {/*<Text>Hello World! ABOBA 228</Text>*/}
+      {/*<StatusBar style="auto" />*/}
+        <SearchField />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
+      <Group groupName="ИП-016" />
     </View>
   );
 }
