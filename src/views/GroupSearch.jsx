@@ -51,8 +51,6 @@ const GroupSearch = () => {
     );
 }
 
-const windowHeight = Dimensions.get('window').height;
-
 const styles = StyleSheet.create({
     container: {
         marginTop: Constants.statusBarHeight,
