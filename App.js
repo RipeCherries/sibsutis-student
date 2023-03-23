@@ -6,11 +6,12 @@ import Group from "./src/components/Group";
 import SearchField from "./src/components/SearchField";
 import GroupSearch from './src/views/GroupSearch';
 import SettingsView from './src/views/SettingsView';
+import StartPage from "./src/views/StartPage";
 
 export default function App() {
   return (
     <View>
-      <SettingsView/>
+        <SettingsView />
     </View>
   );
 }

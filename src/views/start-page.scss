@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  margin: 30px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 50px;
+    color: #187DC2;
+    margin-top: 68px;
+  }
+
+  &__btn {
+    width: 300px;
+    height: 50px;
+    border-radius: 100px;
+    margin: 100px auto;
+    background: #187DC2;
+
+
+    &_title {
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 20px;
+      text-align: center;
+      padding: 10px 0;
+    }
+  }
+}
+
+.bg__man_img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
