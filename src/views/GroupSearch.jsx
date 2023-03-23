@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         marginTop: Constants.statusBarHeight,
     },
     container__list: {
-        height: Dimensions.get('window').height - Constants.statusBarHeight - 146,
+        height: Dimensions.get('window').height - Constants.statusBarHeight - 126,
     },
 });
 
