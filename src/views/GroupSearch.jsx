@@ -11,8 +11,6 @@ const GroupSearch = () => {
         <View style={styles.container}>
 
             <View style={Styles.container__wrapper}>
-                <BackButton/>
-
                 <View style={Styles.container__wrapper_search}>
                     <SearchFiled/>
                 </View>
