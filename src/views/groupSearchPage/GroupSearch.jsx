@@ -1,7 +1,7 @@
 import { View, SafeAreaView, ScrollView, StyleSheet, Dimensions } from "react-native";
-import BackButton from "../components/BackButton";
-import SearchFiled from "../components/SearchField";
-import Group from "../components/Group";
+import BackButton from "../../components/backButton/BackButton";
+import SearchFiled from "../../components/searchField/SearchField";
+import Group from "../../components/groupItem/Group";
 import Constants from 'expo-constants';
 
 import Styles from "./group-search.scss";

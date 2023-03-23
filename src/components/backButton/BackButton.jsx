@@ -1,5 +1,5 @@
 import { View, Text  } from "react-native";
-import BackArrowIcon from "../images/BackArrowIcon";
+import BackArrowIcon from "../../images/BackArrowIcon";
 
 import Styles from "./back-button.scss";
 

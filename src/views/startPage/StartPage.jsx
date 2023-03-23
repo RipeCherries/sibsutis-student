@@ -1,10 +1,10 @@
 import {View, Text, StyleSheet, Image, Dimensions} from "react-native";
 import Constants from "expo-constants";
-import Logo from "../images/Logo";
+import Logo from "../../images/Logo";
 
 import Styles from "./start-page.scss"
 import {Pressable} from "react-native";
-import StartMan from "../images/StartMan";
+import StartMan from "../../images/StartMan";
 import {ImageBackground} from "react-native";
 import {useNavigation, useRoute} from "@react-navigation/native";
 

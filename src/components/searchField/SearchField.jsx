@@ -1,5 +1,5 @@
 import { StyleSheet, View, TextInput } from "react-native";
-import SearchIcon from "../images/SearchIcon";
+import SearchIcon from "../../images/SearchIcon";
 
 import Styles from "./search-field.scss";
 

@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from "react-native";
-import GroupIcon from "../images/GroupIcon";
+import GroupIcon from "../../images/GroupIcon";
 
 import Styles from "./group.scss";
 

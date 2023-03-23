@@ -2,7 +2,7 @@ import { View, StyleSheet, Text } from "react-native";
 import Constants from 'expo-constants';
 
 import Styles from "./settings-view.scss";
-import SwitchTheme from "../components/SwitchTheme";
+import SwitchTheme from "../../components/switch/SwitchTheme";
 
 const SettingsView = () => {
     return(

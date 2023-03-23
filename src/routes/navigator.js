@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native";
-import StartPage from "../views/StartPage";
-import GroupSearch from "../views/GroupSearch";
+import StartPage from "../views/startPage/StartPage";
+import GroupSearch from "../views/groupSearchPage/GroupSearch";
 
 const Stack = createNativeStackNavigator();
 
