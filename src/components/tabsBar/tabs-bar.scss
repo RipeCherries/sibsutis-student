@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+.bar__container{
+    height: 50px;
+    background-color: #187DC2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    &_search{
+      width: 32px;
+      height: 32px;
+    }
+
+    &_home{
+      width: 32px;
+      height: 32px;
+    }
+
+    &_settings{
+      width: 32px;
+      height: 32px;
+    }
+}
+
+.bar__wrapper{
+  margin-top: 300px;
+  width: 400px;
+}
+
+.bar__rectangle{
+  width: 108px;
+  height: 32px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 9px;
+  left: 254px;
+  border-radius: 16px;
+}
