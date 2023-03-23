@@ -6,8 +6,15 @@ import Styles from "./start-page.scss"
 import {Pressable} from "react-native";
 import StartMan from "../images/StartMan";
 import {ImageBackground} from "react-native";
+import {useNavigation, useRoute} from "@react-navigation/native";
 
 const StartPage = () => {
+    const navigation = useNavigation();
+
+    const navigateToSearchGroupPage = () => {
+        navigation.navigate("SearchGroupPage");
+    }
+
     return (
         <ImageBackground
             source={require("./bg.png")}
@@ -19,7 +26,7 @@ const StartPage = () => {
                     <Text style={Styles.wrapper__title}>РАСПИСАНИЕ ЗАНЯТИЙ</Text>
                     <Pressable
                         style={Styles.wrapper__btn}
-                        onPress={() => alert("AAAAAA")}
+                        onPress={navigateToSearchGroupPage}
                     >
                         <Text style={Styles.wrapper__btn_title}>Выбрать группу</Text>
                     </Pressable>
