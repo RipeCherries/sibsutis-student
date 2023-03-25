@@ -1,3 +1,4 @@
+import Calendar from "./src/components/calendar/Calendar";
 import Day from "./src/components/day/Day";
 import SearchFiled from "./src/components/searchField/SearchField";
 import TabsBar from "./src/components/tabsBar/TabsBar";
@@ -7,6 +8,6 @@ import SettingsView from "./src/views/settingsPage/SettingsView";
 
 export default function App() {
     return (
-        <SettingsView/>
+        <Calendar/>
     );
 }

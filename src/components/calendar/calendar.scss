@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    // padding: 0;
+    // margin: 0;
+  }
+
+  .calendar__wrapper{
+    margin-top: 300px;
+
+    &_container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-left: 31px;
+        padding-right: 31px;
+    }
+  }
