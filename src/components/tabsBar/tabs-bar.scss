@@ -5,12 +5,13 @@
   }
 
 .bar__container{
-    height: 50px;
-    background-color: #187DC2;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding-left: 36px;
+    padding-right: 36px;
     align-items: center;
+    margin-top: -32px;
 
     &_search{
       width: 32px;
@@ -37,8 +38,8 @@
   width: 108px;
   height: 32px;
   background-color: #ffffff;
-  position: absolute;
-  bottom: 9px;
-  left: 254px;
+  // 1 - 38px, 2 - 146px, 3 - 254px
+  margin-left: 254px;
+  margin-top: -41px;
   border-radius: 16px;
 }
