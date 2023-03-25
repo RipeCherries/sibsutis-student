@@ -1,5 +1,6 @@
 import Calendar from "./src/components/calendar/Calendar";
 import Day from "./src/components/day/Day";
+import Lesson from "./src/components/lesson/Lesson";
 import SearchFiled from "./src/components/searchField/SearchField";
 import TabsBar from "./src/components/tabsBar/TabsBar";
 import Navigator from "./src/routes/navigator";
@@ -8,6 +9,6 @@ import SettingsView from "./src/views/settingsPage/SettingsView";
 
 export default function App() {
     return (
-        <Calendar/>
+        <Lesson time={"11:40 - 13:15"} title={"Программирование мобильных устройств (лк)"} teacher={"Нечта И. В."} room={"а. 202 (К.1)"}/>
     );
 }
