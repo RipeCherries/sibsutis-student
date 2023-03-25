@@ -7,6 +7,6 @@ import SettingsView from "./src/views/settingsPage/SettingsView";
 
 export default function App() {
     return (
-        <Day title={"Пн"} date={"10"}/>
+        <SettingsView/>
     );
 }

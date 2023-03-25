@@ -1,8 +1,9 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
 import Constants from 'expo-constants';
 
 import Styles from "./settings-view.scss";
 import SwitchTheme from "../../components/switch/SwitchTheme";
+import TabsBar from "../../components/tabsBar/TabsBar";
 
 const SettingsView = () => {
     return(
@@ -24,6 +25,11 @@ const SettingsView = () => {
                 </View>
                 <Text style={Styles.settings__wrapper_change}>Изменить основную группу</Text>
             </View>
+
+            <View style={styles.menu}>
+                <TabsBar/>
+            </View>
+            
         </View>
     );
 }
@@ -31,6 +37,9 @@ const SettingsView = () => {
 const styles = StyleSheet.create({
     settings__container: {
         marginTop: Constants.statusBarHeight,
+    },
+    menu: {
+        marginTop: Dimensions.get('window').height - 270,
     },
 });
 
