@@ -9,6 +9,6 @@ import SettingsView from "./src/views/settingsPage/SettingsView";
 
 export default function App() {
     return (
-        <Lesson time={"11:40 - 13:15"} title={"Программирование мобильных устройств (лк)"} teacher={"Нечта И. В."} room={"а. 202 (К.1)"}/>
+        <TabsBar/>
     );
 }
