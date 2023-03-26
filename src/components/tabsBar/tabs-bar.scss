@@ -21,20 +21,14 @@
     &_rectangle{
       width: 96px;
       height: 32px;
-      background-color: #ffffff;
+      background-color: transparent;
       border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
 
-      &_empty{
-        width: 96px;
-        height: 32px;
-        background-color: transparent;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      &_active{
+        background-color: #ffffff;
       }
     }
 }
