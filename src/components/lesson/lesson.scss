@@ -2,43 +2,80 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-  }
+}
 
-.lesson__wrapper{
-    margin-top: 300px;
-    margin-left: 50px;
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-    &_container{
-        background-color: #187DC2; //#F3F7FC
-        width: 272px;
-        height: 119px;
-        border-radius: 16px;
+    &__timeline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        &_time{
-            font-weight: 400;
-            font-size: 14px;
-            color: #FFFFFF; //#888888
-            padding-left: 10px;
-            padding-top: 15px;
-            line-height: 15px;
+        &_top {
+            width: 2px;
+            flex: 1;
+            background: #187DC2;
+            margin-bottom: 4px;
         }
 
-        &_title{
-            font-weight: 700; //500
-            font-size: 14px;
-            line-height: 15px;
-            color: #FFFFFF; //#000000
-            padding-left: 10px;
-            padding-top: 5px;
+        &_point {
+            width: 14px;
+            height: 14px;
+            border-radius: 7px;
+
+            &_inactive {
+                border: 2px solid #187DC2;
+            }
+
+            &_active {
+                background: #187DC2;
+            }
         }
 
-        &_info{
-            font-weight: 400;
-            font-size: 14px;
-            color: #FFFFFF; //#888888
-            padding-left: 10px;
-            padding-top: 5px;
-            line-height: 15px;
+        &_bottom {
+            width: 2px;
+            flex: 1;
+            background: #187DC2;
+            margin-top: 4px;
         }
     }
+}
+
+.lesson__wrapper{
+    background-color: #F3F7FC;
+    width: 300px;
+    border-radius: 16px;
+    margin: 10px 0;
+
+    &_container{
+        padding: 15px 10px;
+
+        &_time {
+            font-weight: 400;
+            font-size: 14px;
+            color: #888888;
+            margin-bottom: 5px;
+        }
+
+        &_title {
+            font-weight: 500;
+            font-size: 14px;
+            color: #000000;
+            margin-bottom: 3px;
+        }
+
+        &_info {
+            font-weight: 400;
+            font-size: 14px;
+            color: #888888;
+        }
+    }
+}
+
+.active {
+    color: #187DC2;
 }
