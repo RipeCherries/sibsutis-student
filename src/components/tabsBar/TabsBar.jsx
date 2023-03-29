@@ -10,11 +10,16 @@ const TabsBar = () => {
     return(
         <View style={Styles.bar__wrapper}>
             <BarContainerImage></BarContainerImage>
-            <View style={Styles.bar__rectangle}></View>
             <View style={Styles.bar__container}>
-                <SearchBarIcon style={Styles.bar__container_search}></SearchBarIcon>
-                <HomeBarIcon style={Styles.bar__container_home}></HomeBarIcon>
-                <SettingsBarIcon style={Styles.bar__container_settings}></SettingsBarIcon>
+                <View style={Styles.bar__container_rectangle}>
+                    <SearchBarIcon style={Styles.bar__container_icon}></SearchBarIcon>
+                </View>
+                <View style={Styles.bar__container_rectangle}>
+                    <HomeBarIcon style={Styles.bar__container_icon}></HomeBarIcon>
+                </View>
+                <View style={[Styles.bar__container_rectangle, Styles.bar__container_rectangle_active]}>
+                    <SettingsBarIcon style={Styles.bar__container_icon}></SettingsBarIcon>
+                </View>
             </View>      
         </View>
     );
