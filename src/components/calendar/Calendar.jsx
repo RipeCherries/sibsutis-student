@@ -1,20 +1,27 @@
-import { View } from "react-native";
-import Day from "../day/Day";
+import {Dimensions, ScrollView, View} from "react-native";
 
 import Styles from "./calendar.scss";
+import React from "react";
+import CalendarItem from "../calendarItem/CalendarItem";
 
-const Calendar = () => {
-    return(
-        <View style={Styles.calendar__wrapper}>
-            <View style={Styles.calendar__wrapper_container}>
-                <Day title={"Пн"} date={"21"}></Day>
-                <Day title={"Вт"} date={"22"}></Day>
-                <Day title={"Ср"} date={"23"}></Day>
-                <Day title={"Чт"} date={"24"}></Day>
-                <Day title={"Пт"} date={"25"}></Day>
-                <Day title={"Сб"} date={"26"}></Day>
-                <Day title={"Вс"} date={"27"}></Day>
-            </View>      
+const { width } = Dimensions.get('window');
+
+const Calendar = ({ calendarDays }) => {
+    return (
+        <View style={Styles.calendar__container}>
+            <ScrollView
+                horizontal={ true }
+                decelerationRate={ 0 }
+                snapToInterval={ width - 70 }
+                pagingEnabled={ true }
+                contentOffset={ {x: width - 70, y:0 } }
+                showsHorizontalScrollIndicator={false}
+                snapToAlignment={ "center" }
+            >
+                <CalendarItem weekdays={ calendarDays[0] } />
+                <CalendarItem weekdays={ calendarDays[1] } />
+                <CalendarItem weekdays={ calendarDays[2] } />
+            </ScrollView>
         </View>
     );
 }
