@@ -2,9 +2,10 @@ import React from "react";
 import {View} from "react-native";
 import Lesson from "../lesson/Lesson";
 
+import Styles from "./schedule-item.scss";
 const ScheduleItem = ({ schedule }) => {
     return (
-      <View>
+      <View style={ Styles.test }>
           {
               schedule.map((item, index) => {
                   return (

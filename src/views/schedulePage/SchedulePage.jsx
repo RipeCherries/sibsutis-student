@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import { View, StyleSheet, SafeAreaView, ScrollView, Text, Dimensions } from "react-native";
 import Constants from "expo-constants";
 
 import Styles from "./schedule-page.scss";
@@ -8,7 +8,23 @@ import { getCalendarDays } from "../../utils/getCalendarDays";
 import Calendar from "../../components/calendar/Calendar";
 import ScheduleItem from "../../components/scheduleItem/ScheduleItem";
 
+import TabsBar from "../../components/tabsBar/TabsBar";
+
 const schedule = [
+    {
+        time: "09:50 - 11:25",
+        title: "Визуальное программирование и человеко-машинной взаимодействие (лк)",
+        teacher: "Павский К. В.",
+        room: "а. 210 (К.1)",
+        isActive: false
+    },
+    {
+        time: "09:50 - 11:25",
+        title: "Визуальное программирование и человеко-машинной взаимодействие (лк)",
+        teacher: "Павский К. В.",
+        room: "а. 210 (К.1)",
+        isActive: false
+    },
     {
         time: "09:50 - 11:25",
         title: "Визуальное программирование и человеко-машинной взаимодействие (лк)",
@@ -71,8 +87,18 @@ const SchedulePage = () => {
                 <View style={Styles.content__calendar}>
                     <Calendar calendarDays={calendarDays} />
                 </View>
-                <ScheduleItem style={Styles.content__schedule} schedule={ schedule } />
+
+                <SafeAreaView style={styles.schedule__container}>
+                    <ScrollView>
+                        <ScheduleItem style={Styles.content__schedule} schedule={ schedule } />
+                    </ScrollView>
+                </SafeAreaView>
+
+
             </View>
+            <TabsBar>
+
+            </TabsBar>
         </View>
     );
 }
@@ -80,7 +106,11 @@ const SchedulePage = () => {
 const styles = StyleSheet.create({
     container: {
         marginTop: Constants.statusBarHeight,
-    }
+    },
+
+    schedule__container: {
+        height: Dimensions.get('window').height - Constants.statusBarHeight - 260,
+    },
 });
 
 export default SchedulePage;
