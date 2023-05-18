@@ -15,7 +15,6 @@ const ScheduleItem = ({ schedule }) => {
                           title={ item.title }
                           teacher={ item.teacher }
                           room={ item.room }
-                          isActive={ item.isActive  }
                       />
                   );
               })

@@ -4,6 +4,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import React, {useState, useEffect, useCallback} from "react";
 import * as SecureStore from 'expo-secure-store';
 import * as FileSystem from 'expo-file-system';
+import { deflate, inflate } from 'pako';
+import * as Permissions from 'expo-permissions';
 import axios from "axios";
 import {View} from "react-native";
 import StartPage from "./src/views/startPage/StartPage";
@@ -48,10 +50,20 @@ export default function App() {
                         // schedule
                         try {
                             const responseSchedule = await axios.get("https://sibsutis-schedule-api-chi.vercel.app/schedule");
+                            console.log(typeof responseSchedule.data);
+                            console.log(typeof JSON.stringify(responseSchedule.data));
                             const fileUri = FileSystem.documentDirectory + 'schedule.json';
                             await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(responseSchedule.data));
                         } catch (error) {
                             console.log('Error loading schedule:', error);
+                        }
+
+                        // start semestr
+                        try {
+                            const responseStartSemestr = await axios.get("https://sibsutis-schedule-api-chi.vercel.app/startSemestr");
+                            await SecureStore.setItemAsync('startSemestr', responseStartSemestr.data.date.toString());
+                        } catch (error) {
+                            console.log('Error loading start semestr:', error);
                         }
                     }
                 } catch (error) {
@@ -63,28 +75,27 @@ export default function App() {
                 setAppIsReady(true);
             }
 
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // await new Promise(resolve => setTimeout(resolve, 10000));
         }
 
         prepare();
     }, []);
 
-    const onLayoutRootView = useCallback(async () => {
-        if (appIsReady) {
-            await SplashScreen.hideAsync();
-        }
+    useEffect(() => {
+        const hideSplashScreen = async () => {
+            if (appIsReady) {
+                await SplashScreen.hideAsync();
+            }
+        };
+
+        hideSplashScreen();
     }, [appIsReady]);
 
     if (!appIsReady) {
         return null;
     }
 
-
     return (
-        // <View onLayout={onLayoutRootView}>
-        //     {/*<Navigator />*/}
-        //     <SchedulePage />
-        // </View>
-        <Navigator onLayout={onLayoutRootView} />
+        <Navigator/>
     );
 }

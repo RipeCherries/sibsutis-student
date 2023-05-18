@@ -1,20 +1,21 @@
 import {View, SafeAreaView, ScrollView, StyleSheet, Dimensions, TextInput, Pressable} from "react-native";
 import BackButton from "../../components/backButton/BackButton";
 import SearchFiled from "../../components/searchField/SearchField";
-import Group from "../../components/groupItem/Group";
+import Group from "../../components/groupItem/GroupTMP";
 import Constants from 'expo-constants';
 import * as SecureStore from 'expo-secure-store';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import Styles from "./group-search.scss";
 import SearchIcon from "../../images/SearchIcon";
+import TabsBar from "../../components/tabsBar/TabsBar";
 
 const GroupSearch = () => {
     const [allGroups, setAllGroups] = useState([]);
     const [searchText, setSearchText] = useState("");
 
     const filteredData = allGroups.filter(item => item.toLowerCase().includes(searchText.toLowerCase()));
-
+    GroupSearch.js
     useEffect(() => {
         const loadAllGroups = async () => {
             try {
@@ -52,16 +53,14 @@ const GroupSearch = () => {
                         {
                             filteredData.map((item, index) => {
                                 return (
-                                    // <Pressable>
-                                        <Group key={ index } groupName={ item } />
-                                    // </Pressable>
+                                    <Group key={ index } groupName={ item } />
                                 )
                             })
                         }
                     </ScrollView>
                 </SafeAreaView>
             </View>
-            
+            <TabsBar tab={1}></TabsBar>
         </View>
     );
 }
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
         marginTop: Constants.statusBarHeight,
     },
     container__list: {
-        height: Dimensions.get('window').height - Constants.statusBarHeight - 80,
+        height: Dimensions.get('window').height - Constants.statusBarHeight - 151,
     },
 });
 

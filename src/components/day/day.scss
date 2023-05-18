@@ -15,9 +15,31 @@
         text-align: center;
     }
 
+    &_title_active{
+        color: #187DC2;
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+    }
+
+
     &_date {
         font-weight: 300;
         font-size: 14px;
         text-align: center;
     }
+
+    &_date_active {
+        font-weight: 500;
+        color: #187DC2;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+.day__wrapper_active{
+    border: 1px solid #187DC2;
+    border-radius: 5px;
+
+
 }

@@ -32,10 +32,24 @@
     }
 
     &_change{
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 40px;
         margin-top: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        &_title {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 40px;
+        }
+
+        &_group {
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 40px;
+            color: #187DC2;
+        }
     }
 }
 

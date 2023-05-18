@@ -32,3 +32,20 @@
 
   }
 }
+
+.show {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.group {
+  color: #187DC2;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.freeday_img {
+  margin: 22px auto;
+}

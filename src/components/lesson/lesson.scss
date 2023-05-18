@@ -45,33 +45,64 @@
     }
 }
 
-.lesson__wrapper{
+.lesson__wrapper_inactive{
     background-color: #F3F7FC;
     width: 300px;
     border-radius: 16px;
     margin: 10px 0;
 
-    &_container{
+    &_container_inactive{
         padding: 15px 10px;
 
-        &_time {
+        &_time_inactive {
             font-weight: 400;
             font-size: 14px;
             color: #888888;
             margin-bottom: 5px;
         }
 
-        &_title {
+        &_title_inactive {
             font-weight: 500;
             font-size: 14px;
             color: #000000;
             margin-bottom: 3px;
         }
 
-        &_info {
+        &_info_inactive {
             font-weight: 400;
             font-size: 14px;
             color: #888888;
+        }
+    }
+}
+
+.lesson__wrapper_active {
+    background-color: #187DC2;
+    width: 300px;
+    border-radius: 16px;
+    margin: 10px 0;
+
+    &_container_active{
+        padding: 15px 10px;
+
+        &_time_active {
+            font-weight: 400;
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-bottom: 5px;
+        }
+
+        &_title_active {
+            font-weight: 700;
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-bottom: 3px;
+        }
+
+        &_info_active {
+            font-weight: 400;
+            font-size: 14px;
+            color: #FFFFFF;
         }
     }
 }

@@ -6,7 +6,10 @@ import CalendarItem from "../calendarItem/CalendarItem";
 
 const { width } = Dimensions.get('window');
 
-const Calendar = ({ calendarDays }) => {
+const Calendar = ({ calendarDays, choosenDateFun, choosenDate }) => {
+
+
+
     return (
         <View style={Styles.calendar__container}>
             <ScrollView
@@ -18,9 +21,9 @@ const Calendar = ({ calendarDays }) => {
                 showsHorizontalScrollIndicator={false}
                 snapToAlignment={ "center" }
             >
-                <CalendarItem weekdays={ calendarDays[0] } />
-                <CalendarItem weekdays={ calendarDays[1] } />
-                <CalendarItem weekdays={ calendarDays[2] } />
+                <CalendarItem weekdays={ calendarDays[0] } choosenDateFun={choosenDateFun} choosenDate={choosenDate} />
+                <CalendarItem weekdays={ calendarDays[1] } choosenDateFun={choosenDateFun} choosenDate={choosenDate} />
+                <CalendarItem weekdays={ calendarDays[2] } choosenDateFun={choosenDateFun} choosenDate={choosenDate} />
             </ScrollView>
         </View>
     );

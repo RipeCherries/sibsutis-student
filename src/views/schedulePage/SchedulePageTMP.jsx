@@ -9,15 +9,18 @@ import Calendar from "../../components/calendar/Calendar";
 
 import TabsBar from "../../components/tabsBar/TabsBar";
 import * as SecureStore from "expo-secure-store";
-import * as FileSystem from 'expo-file-system';
 import ScheduleItem from "../../components/scheduleItem/ScheduleItem";
 
 import {getFullWeekday} from "../../utils/strings";
 import {sortByTime} from "../../utils/dateConvert";
-
+import {useRoute} from "@react-navigation/native";
 import FreeDay from "../../images/FreeDay";
+import * as FileSystem from "expo-file-system";
 
-const SchedulePage = () => {
+const SchedulePage = (props) => {
+    const route = useRoute();
+    const { group } = route.params;
+
     const d = new Date();
 
     const [currentDate, setCurrentDate] = useState(getDate(d));
@@ -46,26 +49,9 @@ const SchedulePage = () => {
         setChoosenWeekday(getFullWeekday(title));
     };
 
-    const [group, setGroup] = useState("");
     const [schedule, setSchedule] = useState([]);
     const [startSemestr, setStartSemestr] = useState(null);
     const [filteredData, setFilteredData] = useState([]);
-
-
-    useEffect(() => {
-        const loadGroup = async () => {
-            try {
-                const data = await SecureStore.getItemAsync("group");
-                setGroup(data);
-            } catch (error) {
-                console.log('Error loading data:', error);
-            }
-        };
-
-        const interval = setInterval(loadGroup, 100);
-
-        return () => clearInterval(interval);
-    }, []);
 
     useEffect(() => {
         const loadSchedule = async () => {
@@ -77,10 +63,8 @@ const SchedulePage = () => {
             } catch (error) {
                 console.log('Error loading data from file:', error);
             }
-
             // try {
             //     const data = await SecureStore.getItemAsync("schedule");
-            //     console.log(data);
             //     setSchedule(JSON.parse(data));
             // } catch (error) {
             //     console.log('Error loading data:', error);
@@ -136,7 +120,7 @@ const SchedulePage = () => {
                     )
                 }
             </View>
-            <TabsBar tab={2}></TabsBar>
+            <TabsBar tab={1}></TabsBar>
         </View>
     );
 }

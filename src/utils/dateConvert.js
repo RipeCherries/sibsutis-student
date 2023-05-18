@@ -16,3 +16,12 @@ export const getWeekday = (currentDate) => {
 
     return weekdays[weekday];
 }
+
+export const sortByTime = (jsonData) => {
+    const sortedData = jsonData.sort((a, b) => {
+        const timeA = new Date(`1970-01-01T${a.time}`);
+        const timeB = new Date(`1970-01-01T${b.time}`);
+        return timeA - timeB;
+    });
+    return sortedData;
+}

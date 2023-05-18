@@ -8,18 +8,8 @@ import * as SecureStore from "expo-secure-store";
 const Group = ({ groupName }) => {
     const navigation = useNavigation();
 
-    const saveGroup = async () => {
-        try {
-            await SecureStore.setItemAsync('group', groupName);
-        } catch (error) {
-            console.log('Error save group:', error);
-        }
-
-    }
-
     const navigateToSchedulePage = () => {
-        saveGroup();
-        navigation.navigate("SchedulePage");
+        navigation.navigate("SchedulePageTMP", { group: groupName });
     }
 
     return(
