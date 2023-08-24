@@ -5,7 +5,6 @@ const CustomTabBarStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#187DC2',
     height: 60,
   },
   customTabBarButton: {
