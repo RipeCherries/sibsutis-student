@@ -1,9 +1,9 @@
-import Home from "../screens/Home";
-import Search from "../screens/Search";
-import Settings from "../screens/Settings";
+import Home from './home/Home';
+import Search from './search/Search';
+import Settings from './settings/Settings';
 
 export {
-    Home,
-    Search,
-    Settings
-}
+  Home,
+  Search,
+  Settings,
+};
