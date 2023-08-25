@@ -1,17 +1,27 @@
-import React from 'react';
-import {View} from "react-native";
-import {Ionicons} from '@expo/vector-icons';
-import CustomTabBarIconStyles from "./CustomTabBarIcon.styles";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { ThemeContext } from '../../context/ThemeContext';
 
-const CustomTabBarIcon = ({focused, name}) => {
-    const basicColor = "#FFFFFF";
-    const focusedColor = '#187DC2';
+import { colors } from '../../constants/theme';
+import CustomTabBarIconStyles from './CustomTabBarIcon.styles';
 
-    return (
-        <View style={focused ? CustomTabBarIconStyles.customTabBarIconFocused : ''}>
-            <Ionicons name={name} size={24} color={focused ? focusedColor : basicColor}/>
-        </View>
-    );
+function CustomTabBarIcon({ focused, name }) {
+  const { theme } = useContext(ThemeContext);
+  const themeColors = colors[theme];
+
+  return (
+    <View
+      style={focused && [CustomTabBarIconStyles.customTabBarIconFocused, { backgroundColor: themeColors.secondary }]}
+    >
+      <Ionicons name={name} size={24} color={focused ? themeColors.primary : themeColors.secondary} />
+    </View>
+  );
 }
 
+CustomTabBarIcon.propTypes = {
+  focused: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+};
 export default CustomTabBarIcon;
