@@ -29,6 +29,9 @@ const SettingsStyles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Montserrat-Regular',
   },
+  switch: {
+    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }],
+  },
   appInfo: {
     alignItems: 'center',
     marginTop: 400,

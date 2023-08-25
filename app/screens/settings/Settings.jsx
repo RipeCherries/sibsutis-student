@@ -26,11 +26,12 @@ function Settings() {
         <View style={SettingsStyles.menuItem}>
           <Text style={[SettingsStyles.menuItemDescription, { color: themeColors.text }]}>Тёмная тема</Text>
           <Switch
+            style={SettingsStyles.switch}
             value={themeSwitchIsActive}
             onValueChange={handleSwitch}
             thumbColor={themeSwitchIsActive ? themeColors.text : themeColors.primary}
             trackColor={{
-              false: themeColors.text,
+              false: themeColors.tertiary,
               true: themeColors.primary,
             }}
           />
