@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getData, storeData } from '../store/asyncStorage';
+import { getDataFromStorage, saveDataInStorage } from '../store/asyncStorage';
 
 function useTheme() {
   const [theme, setTheme] = useState('light');
@@ -7,12 +7,12 @@ function useTheme() {
   const toggleTheme = async () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-    await storeData('theme', { theme: newTheme });
+    await saveDataInStorage('theme', { theme: newTheme });
   };
 
   const fetchThemeFromAsyncStorage = async () => {
     try {
-      const themeData = await getData('theme');
+      const themeData = await getDataFromStorage('theme');
       return themeData.theme;
     } catch (error) {
       console.log(error.message);
