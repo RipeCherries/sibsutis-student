@@ -5,6 +5,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 
 import { colors } from '../../constants/theme';
 import SettingsStyles from './Settings.styles';
+import GroupChangeButton from '../../components/group-change-button/GroupChangeButton';
 
 function Settings() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -38,8 +39,9 @@ function Settings() {
         </View>
         <View style={SettingsStyles.menuItem}>
           <Text style={[SettingsStyles.menuItemDescription, { color: themeColors.text }]}>
-            Изменить основную группу
+            Изменить группу
           </Text>
+          <GroupChangeButton />
         </View>
       </View>
       <View style={SettingsStyles.appInfo}>
