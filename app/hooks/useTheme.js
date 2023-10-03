@@ -13,7 +13,10 @@ function useTheme() {
   const fetchThemeFromAsyncStorage = async () => {
     try {
       const themeData = await getDataFromStorage('theme');
-      return themeData.theme;
+      if (themeData) {
+        return themeData.theme;
+      }
+      return 'light';
     } catch (error) {
       console.log(error.message);
       return 'light';
