@@ -6,8 +6,10 @@ const colors = {
     text: '#000000',
     textShade: '#888888',
     lessonBg: '#F3F7FC',
+    lessonBgActive: '#187DC2',
+    lessonTextActive: '#FFFFFF',
     lessonTitle: '#000000',
-    lessonOtherText: '#888888'
+    lessonOtherText: '#888888',
   },
   dark: {
     primary: '#506699',
@@ -15,8 +17,10 @@ const colors = {
     text: '#DEDEDE',
     textShade: '#DEDEDE',
     lessonBg: '#E6E1E5',
+    lessonBgActive: '#506699',
+    lessonTextActive: '#E6E1E5',
     lessonTitle: '#000000',
-    lessonOtherText: '#888888'
+    lessonOtherText: '#888888',
   },
 };
 
