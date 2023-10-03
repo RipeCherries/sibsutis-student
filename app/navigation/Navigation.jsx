@@ -10,7 +10,7 @@ function Navigation() {
   return (
     <NavigationContainer>
       {
-                mainGroup ? <MainNavigation /> : <FirstRunNavigation />
+                mainGroup ? (<MainNavigation />) : (<FirstRunNavigation />)
             }
     </NavigationContainer>
   );
