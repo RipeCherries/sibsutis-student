@@ -1,5 +1,6 @@
 export function getCalendarDays(date) {
-  date.setDate(date.getDate() - date.getDay() + 1 - 7);
+  const daysUntilMonday = (date.getDay() === 0 ? 7 : date.getDay()) - 1;
+  date.setDate(date.getDate() - daysUntilMonday - 7);
 
   const daysInWeek = 7;
   const countWeeks = 3;
