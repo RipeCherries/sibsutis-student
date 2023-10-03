@@ -8,5 +8,4 @@ const dayNames = [
   'Суббота',
 ];
 
-
 export { dayNames };
