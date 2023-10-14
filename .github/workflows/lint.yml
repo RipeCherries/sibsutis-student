@@ -1,0 +1,31 @@
+name: ESLint Check
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run ESLint and Generate Report
+      run: npx eslint . --format=html --output-file=eslint-report.html
+
+    - name: Upload ESLint Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: eslint-report
+        path: eslint-report.html
