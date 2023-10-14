@@ -16,16 +16,10 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: 14
+        node-version: 18
 
     - name: Install Dependencies
       run: npm install
 
-    - name: Run ESLint and Generate Report
+    - name: Run ESLint
       run: npx eslint .
-
-    - name: Upload ESLint Report
-      uses: actions/upload-artifact@v2
-      with:
-        name: eslint-report
-        path: eslint-report.html
