@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Run ESLint and Generate Report
-      run: npx eslint . --format=html --output-file=eslint-report.html
+      run: npx eslint .
 
     - name: Upload ESLint Report
       uses: actions/upload-artifact@v2
