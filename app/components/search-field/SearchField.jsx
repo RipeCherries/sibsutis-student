@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { View, TextInput } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
@@ -28,5 +29,10 @@ function SearchField({ value, onChangeFunc }) {
     </View>
   );
 }
+
+SearchField.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChangeFunc: PropTypes.func.isRequired,
+};
 
 export default SearchField;
