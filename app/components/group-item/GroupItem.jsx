@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Pressable, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
@@ -20,5 +21,10 @@ const GroupItem = React.memo(({ groupName, onPress }) => {
     </Pressable>
   );
 });
+
+GroupItem.propTypes = {
+  groupName: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+};
 
 export default GroupItem;

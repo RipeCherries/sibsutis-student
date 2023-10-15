@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 
 import LessonStyles from './Lesson.styles';
@@ -102,5 +103,18 @@ function Lesson({
 
   );
 }
+
+Lesson.propTypes = {
+  time: PropTypes.shape({
+    startHours: PropTypes.number.isRequired,
+    startMinutes: PropTypes.number.isRequired,
+    endHours: PropTypes.number.isRequired,
+    endMinutes: PropTypes.number.isRequired,
+  }).isRequired,
+  name: PropTypes.string.isRequired,
+  teacher: PropTypes.string.isRequired,
+  room: PropTypes.string.isRequired,
+  selectedD: PropTypes.instanceOf(Date).isRequired,
+};
 
 export default Lesson;
