@@ -8,7 +8,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { colors } from '../../constants/theme';
 
 function DateDisplay() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const themeColors = colors[theme];
 
   const [currentDate, setCurrentDate] = useState(new Date());
