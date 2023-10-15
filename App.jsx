@@ -35,12 +35,11 @@ function AppInner() {
     toggleTheme,
   }), [theme, toggleTheme]);
 
-  const mainGroup = useSelector((store) => store.mainGroup);
+  const mainGroup = useSelector((appStore) => appStore.mainGroup);
 
   useEffect(() => {
     async function prepare() {
       try {
-        // await AsyncStorage.clear();
         const updateRequired = await checkUpdate(dispatch);
 
         await getMainGroup(dispatch);
@@ -57,8 +56,8 @@ function AppInner() {
           await loadStartOfSemesterFromStorage(dispatch);
           await loadMainGroupLessonsFromStorage(dispatch);
         }
-      } catch (e) {
-        alert(e.message);
+      } catch (error) {
+        console.log(error.message);
       } finally {
         setAppIsReady(true);
       }
