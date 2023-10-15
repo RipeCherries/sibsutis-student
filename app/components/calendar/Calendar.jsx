@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import {
-  ScrollView, View, Text, FlatList, StyleSheet, Dimensions,
-} from 'react-native';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ScrollView, Dimensions } from 'react-native';
 import CalendarPage from '../calendar-page/CalendarPage';
 import { getCalendarDays } from '../../utils/getCalendarDays';
 
@@ -27,5 +26,10 @@ function Calendar({ selectedDate, onDateChange }) {
 
   );
 }
+
+Calendar.propTypes = {
+  selectedDate: PropTypes.instanceOf(Date).isRequired,
+  onDateChange: PropTypes.func.isRequired,
+};
 
 export default Calendar;
