@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { FlatList, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
@@ -10,8 +11,6 @@ import SearchStyles from './Search.styles';
 import GroupItem from '../../components/group-item/GroupItem';
 import { saveMainGroup } from '../../utils/mainGroup';
 import { loadMainGroupLessonsAndSaveFromApi } from '../../utils/loadMainGroupLessons';
-import { saveDataInStorage } from '../../store/asyncStorage';
-import { setMainGroupLessons } from '../../store/mainGroupLessonsSlice';
 
 function Search({ route }) {
   const context = route.params?.context || 'main';
@@ -35,11 +34,14 @@ function Search({ route }) {
       }
     } else if (context === 'main') {
       try {
-        const apiMainGroupLessonsResponse = await axios.get(`${process.env.EXPO_PUBLIC_API_BASE_URL}/lessons/${group.groupId}`, {
-          headers: {
-            'x-api-key': process.env.EXPO_PUBLIC_API_TOKEN,
+        const apiMainGroupLessonsResponse = await axios.get(
+          `${process.env.EXPO_PUBLIC_API_BASE_URL}/lessons/${group.groupId}`,
+          {
+            headers: {
+              'x-api-key': process.env.EXPO_PUBLIC_API_TOKEN,
+            },
           },
-        });
+        );
 
         navigation.navigate('GroupSchedule', { selectedGroup: group, lessons: apiMainGroupLessonsResponse.data });
       } catch (error) {
@@ -55,7 +57,12 @@ function Search({ route }) {
         <View style={SearchStyles.groupsList}>
           <FlatList
             data={filteredGroups}
-            renderItem={({ item }) => <GroupItem groupName={item.groupName} onPress={() => handlePress(item)} />}
+            renderItem={({ item }) => (
+              <GroupItem
+                groupName={item.groupName}
+                onPress={() => handlePress(item)}
+              />
+            )}
             keyExtractor={(item) => item.groupId}
           />
         </View>
@@ -63,5 +70,17 @@ function Search({ route }) {
     </MainContainer>
   );
 }
+
+Search.propTypes = {
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      context: PropTypes.string,
+    }),
+  }),
+};
+
+Search.defaultProps = {
+  route: {},
+};
 
 export default Search;
