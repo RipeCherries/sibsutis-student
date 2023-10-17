@@ -1,12 +1,10 @@
-import { Dimensions, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import { StyleSheet } from 'react-native';
 
 const StartStyles = StyleSheet.create({
   bg: {
     height: '100%',
   },
   container: {
-    // marginTop: Constants.statusBarHeight,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
