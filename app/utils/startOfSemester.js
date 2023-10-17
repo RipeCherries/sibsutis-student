@@ -13,11 +13,14 @@ export async function loadStartOfSemesterFromStorage(dispatch) {
 
 export async function loadStartOfSemesterAndSaveFromApi(dispatch) {
   try {
-    const apiStartOfSemesterResponse = await axios.get('https://sibsutis-schedule-api-nine.vercel.app/start-of-semester', {
-      headers: {
-        'x-api-key': '0GpVzFuguPr62pT6c4CCifHP4KvxD4zgMznTyH6lRq6d2yrfZe7rS3LTmzTVKTho',
+    const apiStartOfSemesterResponse = await axios.get(
+      'https://sibsutis-schedule-api-nine.vercel.app/start-of-semester',
+      {
+        headers: {
+          'x-api-key': '0GpVzFuguPr62pT6c4CCifHP4KvxD4zgMznTyH6lRq6d2yrfZe7rS3LTmzTVKTho',
+        },
       },
-    });
+    );
 
     await saveDataInStorage('startOfSemester', { date: apiStartOfSemesterResponse.data.date });
     dispatch(setStartOfSemester(apiStartOfSemesterResponse.data.date));

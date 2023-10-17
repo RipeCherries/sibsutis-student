@@ -13,11 +13,14 @@ export async function loadMainGroupLessonsFromStorage(dispatch) {
 
 export async function loadMainGroupLessonsAndSaveFromApi(dispatch, group) {
   try {
-    const apiMainGroupLessonsResponse = await axios.get(`https://sibsutis-schedule-api-nine.vercel.app/lessons/${group.groupId}`, {
-      headers: {
-        'x-api-key': '0GpVzFuguPr62pT6c4CCifHP4KvxD4zgMznTyH6lRq6d2yrfZe7rS3LTmzTVKTho',
+    const apiMainGroupLessonsResponse = await axios.get(
+      `https://sibsutis-schedule-api-nine.vercel.app/lessons/${group.groupId}`,
+      {
+        headers: {
+          'x-api-key': '0GpVzFuguPr62pT6c4CCifHP4KvxD4zgMznTyH6lRq6d2yrfZe7rS3LTmzTVKTho',
+        },
       },
-    });
+    );
 
     await saveDataInStorage('mainGroupLessons', apiMainGroupLessonsResponse.data);
     dispatch(setMainGroupLessons(apiMainGroupLessonsResponse.data));
