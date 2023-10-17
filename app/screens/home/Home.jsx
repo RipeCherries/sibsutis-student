@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import MainContainer from '../../components/main-container/MainContainer';
@@ -31,8 +32,6 @@ function Home({ route }) {
   const lessons = route.params?.lessons || useSelector((store) => store.mainGroupLessons);
   const startOfSemester = useSelector((store) => store.startOfSemester);
 
-  const currentD = new Date();
-
   const d = new Date();
   const [selectedDate, setSelectedDate] = useState(d);
   const handleDateChange = (newDate) => {
@@ -60,5 +59,18 @@ function Home({ route }) {
     </MainContainer>
   );
 }
+
+Home.propTypes = {
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      selectedGroup: PropTypes.object,
+      lessons: PropTypes.array,
+    }),
+  }),
+};
+
+Home.defaultProps = {
+  route: {},
+};
 
 export default Home;
