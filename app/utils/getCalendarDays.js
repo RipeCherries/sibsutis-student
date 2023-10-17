@@ -1,3 +1,8 @@
+function getDayTitle(dayIndex) {
+  const daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+  return daysOfWeek[dayIndex];
+}
+
 export function getCalendarDays(date) {
   const daysUntilMonday = (date.getDay() === 0 ? 7 : date.getDay()) - 1;
   date.setDate(date.getDate() - daysUntilMonday - 7);
@@ -7,10 +12,10 @@ export function getCalendarDays(date) {
 
   const result = [];
 
-  for (let i = 0; i < countWeeks; ++i) {
+  for (let i = 0; i < countWeeks; i += 1) {
     const week = [];
 
-    for (let j = 0; j < daysInWeek; ++j) {
+    for (let j = 0; j < daysInWeek; j += 1) {
       const tmp = {};
       tmp.dayName = getDayTitle(j);
       tmp.day = date.getDate();
@@ -24,9 +29,4 @@ export function getCalendarDays(date) {
   }
 
   return result;
-}
-
-function getDayTitle(dayIndex) {
-  const daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-  return daysOfWeek[dayIndex];
 }
