@@ -45,7 +45,7 @@ function Settings() {
         </View>
       </View>
       <View style={SettingsStyles.appInfo}>
-        <Text>sibsutis-schedule v. 1.0.0</Text>
+        <Text>sibsutis-schedule v. 1.0.1</Text>
       </View>
     </MainContainer>
   );
