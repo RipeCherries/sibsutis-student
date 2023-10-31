@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { useFonts } from 'expo-font';
 import Navigation from './app/navigation/Navigation';
@@ -74,6 +75,7 @@ function AppInner() {
     return (
       <ThemeContext.Provider value={themeContextValue}>
         <Splash />
+        <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
       </ThemeContext.Provider>
     );
   }
@@ -81,6 +83,7 @@ function AppInner() {
   return (
     <ThemeContext.Provider value={themeContextValue}>
       <Navigation />
+      <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
     </ThemeContext.Provider>
   );
 }
