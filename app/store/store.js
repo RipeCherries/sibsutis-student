@@ -3,7 +3,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import lastUpdateSlice from './lastUpdateSlice';
 import groupsSlice from './groupsSlice';
 import mainGroupSlice from './mainGroupSlice';
-import startOfSemesterSlice from './startOfSemesterSlice';
 import mainGroupLessonsSlice from './mainGroupLessonsSlice';
 
 const store = configureStore({
@@ -12,7 +11,6 @@ const store = configureStore({
     mainGroupLessons: mainGroupLessonsSlice,
     lastUpdate: lastUpdateSlice,
     groups: groupsSlice,
-    startOfSemester: startOfSemesterSlice,
   },
 });
 
