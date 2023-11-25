@@ -10,7 +10,6 @@ import store from './app/store/store';
 import { loadGroupsAndSaveFromApi, loadGroupsFromStorage } from './app/utils/loadGroups';
 import Splash from './app/screens/splash/Splash';
 import { getMainGroup } from './app/utils/mainGroup';
-import { loadStartOfSemesterAndSaveFromApi, loadStartOfSemesterFromStorage } from './app/utils/startOfSemester';
 import { loadMainGroupLessonsAndSaveFromApi, loadMainGroupLessonsFromStorage } from './app/utils/loadMainGroupLessons';
 
 function AppInner() {
@@ -26,15 +25,15 @@ function AppInner() {
     'Montserrat-Bold': require('./assets/fonts/Montserrat-Bold.ttf'), // 700
   });
 
-  const {
-    theme,
-    toggleTheme,
-  } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-  const themeContextValue = useMemo(() => ({
-    theme,
-    toggleTheme,
-  }), [theme, toggleTheme]);
+  const themeContextValue = useMemo(
+    () => ({
+      theme,
+      toggleTheme,
+    }),
+    [theme, toggleTheme],
+  );
 
   const mainGroup = useSelector((appStore) => appStore.mainGroup);
 
@@ -47,14 +46,12 @@ function AppInner() {
 
         if (updateRequired) {
           await loadGroupsAndSaveFromApi(dispatch);
-          await loadStartOfSemesterAndSaveFromApi(dispatch);
 
           if (mainGroup) {
             await loadMainGroupLessonsAndSaveFromApi(dispatch, mainGroup);
           }
         } else {
           await loadGroupsFromStorage(dispatch);
-          await loadStartOfSemesterFromStorage(dispatch);
           await loadMainGroupLessonsFromStorage(dispatch);
         }
       } catch (error) {
