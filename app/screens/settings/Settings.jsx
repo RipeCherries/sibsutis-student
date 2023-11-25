@@ -38,14 +38,12 @@ function Settings() {
           />
         </View>
         <View style={SettingsStyles.menuItem}>
-          <Text style={[SettingsStyles.menuItemDescription, { color: themeColors.text }]}>
-            Изменить группу
-          </Text>
+          <Text style={[SettingsStyles.menuItemDescription, { color: themeColors.text }]}>Изменить группу</Text>
           <GroupChangeButton />
         </View>
       </View>
       <View style={SettingsStyles.appInfo}>
-        <Text>sibsutis-schedule v. 1.0.1</Text>
+        <Text>sibsutis-schedule v. 1.1.0</Text>
       </View>
     </MainContainer>
   );
