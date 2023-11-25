@@ -35,15 +35,18 @@ function Search({ route }) {
     } else if (context === 'main') {
       try {
         const apiMainGroupLessonsResponse = await axios.get(
-          `${process.env.EXPO_PUBLIC_API_BASE_URL}/lessons/${group.groupId}`,
+          `https://sibsutis-schedule-api-nine.vercel.app/lessons/${group.groupId}`,
           {
             headers: {
-              'x-api-key': process.env.EXPO_PUBLIC_API_TOKEN,
+              'x-api-key': '0GpVzFuguPr62pT6c4CCifHP4KvxD4zgMznTyH6lRq6d2yrfZe7rS3LTmzTVKTho',
             },
           },
         );
 
-        navigation.navigate('GroupSchedule', { selectedGroup: group, lessons: apiMainGroupLessonsResponse.data });
+        navigation.navigate('GroupSchedule', {
+          selectedGroup: group,
+          lessons: apiMainGroupLessonsResponse.data,
+        });
       } catch (error) {
         console.log(error.message);
       }
@@ -57,12 +60,7 @@ function Search({ route }) {
         <View style={SearchStyles.groupsList}>
           <FlatList
             data={filteredGroups}
-            renderItem={({ item }) => (
-              <GroupItem
-                groupName={item.groupName}
-                onPress={() => handlePress(item)}
-              />
-            )}
+            renderItem={({ item }) => <GroupItem groupName={item.groupName} onPress={() => handlePress(item)} />}
             keyExtractor={(item) => item.groupId}
           />
         </View>
