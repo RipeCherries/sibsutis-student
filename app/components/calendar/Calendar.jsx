@@ -14,16 +14,18 @@ function Calendar({ selectedDate, onDateChange }) {
       horizontal
       contentContainerStyle={{ width: (width - 60) * 3 }}
       snapToInterval={width - 60}
-      contentOffset={{ x: width - 60, y: 0 }}
+      contentOffset={{
+        x: width - 60,
+        y: 0,
+      }}
       pagingEnabled
-      snapToAlignment="center"
+      snapToAlignment='center'
       showsHorizontalScrollIndicator={false}
     >
       <CalendarPage week={calendarDays[0]} selectedDate={selectedDate} onDateChange={onDateChange} />
       <CalendarPage week={calendarDays[1]} selectedDate={selectedDate} onDateChange={onDateChange} />
       <CalendarPage week={calendarDays[2]} selectedDate={selectedDate} onDateChange={onDateChange} />
     </ScrollView>
-
   );
 }
 

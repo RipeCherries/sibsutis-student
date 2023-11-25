@@ -7,13 +7,7 @@ import FirstRunNavigation from './first-run-navigation/FirstRunNavigation';
 function Navigation() {
   const mainGroup = useSelector((store) => store.mainGroup);
 
-  return (
-    <NavigationContainer>
-      {
-        mainGroup ? <MainNavigation /> : <FirstRunNavigation />
-      }
-    </NavigationContainer>
-  );
+  return <NavigationContainer>{mainGroup ? <MainNavigation /> : <FirstRunNavigation />}</NavigationContainer>;
 }
 
 export default Navigation;

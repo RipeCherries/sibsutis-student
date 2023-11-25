@@ -5,6 +5,7 @@ import { Feather } from '@expo/vector-icons';
 
 import GroupItemStyles from './GroupItem.styles';
 import { colors } from '../../constants/theme';
+
 import { ThemeContext } from '../../context/ThemeContext';
 
 const GroupItem = React.memo(({ groupName, onPress }) => {
@@ -14,7 +15,7 @@ const GroupItem = React.memo(({ groupName, onPress }) => {
   return (
     <Pressable style={GroupItemStyles.container} onPress={onPress}>
       <View style={GroupItemStyles.wrapper}>
-        <Feather name="users" size={24} color={themeColors.primary} />
+        <Feather name='users' size={24} color={themeColors.primary} />
         <Text style={[GroupItemStyles.groupName, { color: themeColors.text }]}>{groupName}</Text>
       </View>
       <View style={[GroupItemStyles.underline, { backgroundColor: themeColors.text }]} />

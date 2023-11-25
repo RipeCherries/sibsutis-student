@@ -8,14 +8,14 @@ function SearchStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="SearchStack"
+        name='SearchStack'
         component={Search}
         options={{
           headerShown: false,
         }}
       />
       <Stack.Screen
-        name="GroupSchedule"
+        name='GroupSchedule'
         component={Home}
         options={{
           headerShown: false,

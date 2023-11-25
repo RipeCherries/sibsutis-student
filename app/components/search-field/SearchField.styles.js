@@ -9,7 +9,6 @@ const SearchFieldStyles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 16,
     paddingHorizontal: 10,
-
   },
   input: {
     width: '100%',

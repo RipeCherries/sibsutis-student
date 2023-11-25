@@ -9,7 +9,6 @@ const HomeStyles = StyleSheet.create({
   groupName: {
     fontFamily: 'Montserrat-Regular',
     fontSize: 20,
-
   },
   calendar: {
     marginVertical: 15,

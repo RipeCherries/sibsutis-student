@@ -26,13 +26,10 @@ function DateDisplay() {
   return (
     <View>
       <Text style={[DateDisplayStyles.fullDate, { color: themeColors.textShade }]}>
-        {
-                    `${monthNames[currentDate.getMonth()]} ${currentDate.getDate()}, ${currentDate.getFullYear()}`
-                }
+        {`${monthNames[currentDate.getMonth()]} ${currentDate.getDate()}, ${currentDate.getFullYear()}`}
       </Text>
       <Text style={[DateDisplayStyles.dayName, { color: themeColors.text }]}>{dayNames[currentDate.getDay()]}</Text>
     </View>
-
   );
 }
 

@@ -14,16 +14,12 @@ function SearchField({ value, onChangeFunc }) {
 
   return (
     <View style={[SearchFieldStyles.container, { borderColor: themeColors.primary }]}>
-      <Ionicons
-        color={themeColors.primary}
-        size={24}
-        name="ios-search"
-      />
+      <Ionicons color={themeColors.primary} size={24} name='ios-search' />
       <TextInput
         style={[SearchFieldStyles.input, { color: themeColors.text }]}
         value={value}
         onChangeText={(text) => onChangeFunc(text)}
-        placeholder="Поиск по группе"
+        placeholder='Поиск по группе'
         placeholderTextColor={themeColors.text}
       />
     </View>

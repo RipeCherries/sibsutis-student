@@ -11,7 +11,7 @@ function MainNavigation() {
 
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName='Home'
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
@@ -19,30 +19,24 @@ function MainNavigation() {
       tabBar={(props) => <CustomTabBar {...props} />}
     >
       <Tab.Screen
-        name="Search"
+        name='Search'
         component={SearchStack}
         options={{
-          tabBarIcon: (focused) => (
-            <CustomTabBarIcon focused={focused} name="ios-search" />
-          ),
+          tabBarIcon: (focused) => <CustomTabBarIcon focused={focused} name='ios-search' />,
         }}
       />
       <Tab.Screen
-        name="Home"
+        name='Home'
         component={Home}
         options={{
-          tabBarIcon: (focused) => (
-            <CustomTabBarIcon focused={focused} name="home" />
-          ),
+          tabBarIcon: (focused) => <CustomTabBarIcon focused={focused} name='home' />,
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name='Settings'
         component={SettingsStack}
         options={{
-          tabBarIcon: (focused) => (
-            <CustomTabBarIcon focused={focused} name="settings" />
-          ),
+          tabBarIcon: (focused) => <CustomTabBarIcon focused={focused} name='settings' />,
         }}
       />
     </Tab.Navigator>

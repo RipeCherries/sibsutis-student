@@ -33,16 +33,10 @@ function Splash() {
   return (
     <MainContainer>
       <View style={SplashStyles.container}>
-        <LottieView
-          style={SplashStyles.animation}
-          source={theme === 'dark' ? splashDark : splashLight}
-          autoPlay
-          loop
-        />
+        <LottieView style={SplashStyles.animation} source={theme === 'dark' ? splashDark : splashLight} autoPlay loop />
         <Text style={[SplashStyles.phrase, { color: themeColors.text }]}>{phrases[phraseIndex]}</Text>
       </View>
     </MainContainer>
-
   );
 }
 
