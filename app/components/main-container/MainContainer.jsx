@@ -10,11 +10,7 @@ function MainContainer({ children }) {
   const { theme } = useContext(ThemeContext);
   const themeColors = colors[theme];
 
-  return (
-    <View style={[MainContainerStyles.container, { backgroundColor: themeColors.secondary }]}>
-      {children}
-    </View>
-  );
+  return <View style={[MainContainerStyles.container, { backgroundColor: themeColors.secondary }]}>{children}</View>;
 }
 
 MainContainer.propTypes = {

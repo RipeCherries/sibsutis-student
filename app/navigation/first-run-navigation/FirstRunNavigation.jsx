@@ -8,13 +8,13 @@ function FirstRunNavigation() {
 
   return (
     <Stack.Navigator
-      initialRouteName="Start"
+      initialRouteName='Start'
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Stack.Screen name="Start" component={Start} />
-      <Stack.Screen name="SearchStart" component={Search} initialParams={{ context: 'firstRun' }} />
+      <Stack.Screen name='Start' component={Start} />
+      <Stack.Screen name='SearchStart' component={Search} initialParams={{ context: 'firstRun' }} />
     </Stack.Navigator>
   );
 }

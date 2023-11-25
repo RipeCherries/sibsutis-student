@@ -6,9 +6,7 @@ import LessonStyles from './Lesson.styles';
 import { ThemeContext } from '../../context/ThemeContext';
 import { colors } from '../../constants/theme';
 
-function Lesson({
-  time, name, teacher, room, selectedD,
-}) {
+function Lesson({ time, name, teacher, room, selectedD }) {
   const { theme } = useContext(ThemeContext);
   const themeColors = colors[theme];
 
@@ -40,67 +38,73 @@ function Lesson({
     <View style={LessonStyles.lessonContainer}>
       <View style={LessonStyles.lessonMarkerContainer}>
         <View style={[LessonStyles.lessonMarkerVerticalLine, { backgroundColor: themeColors.primary }]} />
-        <View style={[
-          LessonStyles.lessonMarkerCircle,
-          {
-            borderColor: themeColors.primary,
-            backgroundColor: isActive ? themeColors.primary : themeColors.secondary,
-          },
-        ]}
+        <View
+          style={[
+            LessonStyles.lessonMarkerCircle,
+            {
+              borderColor: themeColors.primary,
+              backgroundColor: isActive ? themeColors.primary : themeColors.secondary,
+            },
+          ]}
         />
         <View style={[LessonStyles.lessonMarkerVerticalLine, { backgroundColor: themeColors.primary }]} />
       </View>
-      <View style={[
-        LessonStyles.container,
-        {
-          backgroundColor: isActive ? themeColors.lessonBgActive : themeColors.lessonBg,
-        }]}
+      <View
+        style={[
+          LessonStyles.container,
+          {
+            backgroundColor: isActive ? themeColors.lessonBgActive : themeColors.lessonBg,
+          },
+        ]}
       >
-        <Text style={[
-          LessonStyles.time,
-          {
-            color: isActive ? themeColors.lessonTextActive : themeColors.lessonOtherText,
-          },
-        ]}
+        <Text
+          style={[
+            LessonStyles.time,
+            {
+              color: isActive ? themeColors.lessonTextActive : themeColors.lessonOtherText,
+            },
+          ]}
         >
-          {time.startHours}
-          :
-          {time.startMinutes === 0 ? '00' : time.startMinutes}
+          {time.startHours}:{time.startMinutes === 0 ? '00' : time.startMinutes}
           {' - '}
-          {time.endHours}
-          :
-          {time.endMinutes === 0 ? '00' : time.endMinutes}
+          {time.endHours}:{time.endMinutes === 0 ? '00' : time.endMinutes}
         </Text>
-        <Text style={[
-          LessonStyles.name,
-          {
-            color: isActive ? themeColors.lessonTextActive : themeColors.lessonTitle,
-          },
-        ]}
+        <Text
+          style={[
+            LessonStyles.name,
+            {
+              color: isActive ? themeColors.lessonTextActive : themeColors.lessonTitle,
+            },
+          ]}
         >
           {name}
         </Text>
-        <Text style={[
-          LessonStyles.teacher,
-          {
-            color: isActive ? themeColors.lessonTextActive : themeColors.lessonOtherText,
-          },
-        ]}
-        >
-          {teacher}
-        </Text>
-        <Text style={[
-          LessonStyles.room,
-          {
-            color: isActive ? themeColors.lessonTextActive : themeColors.lessonOtherText,
-          },
-        ]}
-        >
-          {room}
-        </Text>
+        {teacher && (
+          <Text
+            style={[
+              LessonStyles.teacher,
+              {
+                color: isActive ? themeColors.lessonTextActive : themeColors.lessonOtherText,
+              },
+            ]}
+          >
+            {teacher}
+          </Text>
+        )}
+        {room && (
+          <Text
+            style={[
+              LessonStyles.room,
+              {
+                color: isActive ? themeColors.lessonTextActive : themeColors.lessonOtherText,
+              },
+            ]}
+          >
+            {room}
+          </Text>
+        )}
       </View>
     </View>
-
   );
 }
 

@@ -28,9 +28,9 @@ function CalendarPage({ week, selectedDate, onDateChange }) {
         <Pressable
           style={[
             CalendarPageStyles.day,
-            item.obj.getDate() === selectedDate.getDate() ? [CalendarPageStyles.selectedDay,
-              { borderColor: themeColors.primary },
-            ] : '',
+            item.obj.getDate() === selectedDate.getDate()
+              ? [CalendarPageStyles.selectedDay, { borderColor: themeColors.primary }]
+              : '',
           ]}
           onPress={() => onDateChange(item.obj)}
           key={item.day}
@@ -38,7 +38,9 @@ function CalendarPage({ week, selectedDate, onDateChange }) {
           <Text
             style={[
               CalendarPageStyles.dayName,
-              { color: currentDate.getDate() === item.day ? themeColors.primary : themeColors.textShade },
+              {
+                color: currentDate.getDate() === item.day ? themeColors.primary : themeColors.textShade,
+              },
             ]}
           >
             {item.dayName}
@@ -46,7 +48,9 @@ function CalendarPage({ week, selectedDate, onDateChange }) {
           <Text
             style={[
               CalendarPageStyles.dayValue,
-              { color: currentDate.getDate() === item.day ? themeColors.primary : themeColors.text },
+              {
+                color: currentDate.getDate() === item.day ? themeColors.primary : themeColors.text,
+              },
             ]}
           >
             {item.day}
@@ -58,11 +62,13 @@ function CalendarPage({ week, selectedDate, onDateChange }) {
 }
 
 CalendarPage.propTypes = {
-  week: PropTypes.arrayOf(PropTypes.shape({
-    dayName: PropTypes.string.isRequired,
-    day: PropTypes.number.isRequired,
-    obj: PropTypes.instanceOf(Date).isRequired,
-  })).isRequired,
+  week: PropTypes.arrayOf(
+    PropTypes.shape({
+      dayName: PropTypes.string.isRequired,
+      day: PropTypes.number.isRequired,
+      obj: PropTypes.instanceOf(Date).isRequired,
+    }),
+  ).isRequired,
   selectedDate: PropTypes.instanceOf(Date).isRequired,
   onDateChange: PropTypes.func.isRequired,
 };

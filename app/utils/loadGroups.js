@@ -13,9 +13,9 @@ export async function loadGroupsFromStorage(dispatch) {
 
 export async function loadGroupsAndSaveFromApi(dispatch) {
   try {
-    const apiGroupResponse = await axios.get(`${process.env.EXPO_PUBLIC_API_BASE_URL}/groups`, {
+    const apiGroupResponse = await axios.get('https://sibsutis-schedule-api-nine.vercel.app/groups', {
       headers: {
-        'x-api-key': process.env.EXPO_PUBLIC_API_TOKEN,
+        'x-api-key': '0GpVzFuguPr62pT6c4CCifHP4KvxD4zgMznTyH6lRq6d2yrfZe7rS3LTmzTVKTho',
       },
     });
 

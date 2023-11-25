@@ -30,7 +30,6 @@ function Home({ route }) {
 
   const currentGroup = route.params?.selectedGroup || useSelector((store) => store.mainGroup);
   const lessons = route.params?.lessons || useSelector((store) => store.mainGroupLessons);
-  const startOfSemester = useSelector((store) => store.startOfSemester);
 
   const d = new Date();
   const [selectedDate, setSelectedDate] = useState(d);
@@ -39,9 +38,22 @@ function Home({ route }) {
   };
 
   const filterData = () => {
-    const timeDiff = Math.abs(selectedDate.getTime() - new Date(startOfSemester).getTime());
-    const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
-    const evenOrOddWeek = Math.floor(daysDiff / 7) % 2 === 1 ? 0 : 1;
+    const firstSeptember =
+      selectedDate.getMonth() >= 8
+        ? new Date(selectedDate.getFullYear(), 8, 1)
+        : new Date(selectedDate.getFullYear() - 1, 8, 1);
+
+    let add = 0;
+    if (firstSeptember.getDay() === 0) {
+      add = 6;
+    } else if (firstSeptember.getDay() === 1) {
+      add = 0;
+    } else {
+      add = firstSeptember.getDay() - 1;
+    }
+
+    const evenOrOddWeek =
+      Math.floor(((selectedDate - firstSeptember) / (1000 * 60 * 60 * 24) - (7 - add)) / 7) % 2 === 1 ? 1 : 0;
 
     return lessons.filter((item) => item.week === evenOrOddWeek && item.weekday === dayNames[selectedDate.getDay()]);
   };
