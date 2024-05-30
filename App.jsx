@@ -1,32 +1,33 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Provider, useDispatch, useSelector } from 'react-redux';
 import { useFonts } from 'expo-font';
+import { StatusBar } from 'expo-status-bar';
+import { ToastProvider } from 'react-native-toast-notifications';
+import { Provider, useDispatch } from 'react-redux';
 import Navigation from './app/navigation/Navigation';
 import { ThemeContext } from './app/context/ThemeContext';
 import { useTheme } from './app/hooks/useTheme';
-import { checkUpdate } from './app/utils/checkUpdate';
 import store from './app/store/store';
-import { loadGroupsAndSaveFromApi, loadGroupsFromStorage } from './app/utils/loadGroups';
 import Splash from './app/screens/splash/Splash';
-import { getMainGroup } from './app/utils/mainGroup';
-import { loadMainGroupLessonsAndSaveFromApi, loadMainGroupLessonsFromStorage } from './app/utils/loadMainGroupLessons';
+import { getDataFromStorage } from './app/store/asyncStorage';
+import { setUser } from './app/store/userSlice';
 
 function AppInner() {
-  const [appIsReady, setAppIsReady] = useState(false);
+  const [appIsReady, setAppIsReady] = useState(true);
 
   const dispatch = useDispatch();
 
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     'Montserrat-ExtraLight': require('./assets/fonts/Montserrat-ExtraLight.ttf'), // 200
     'Montserrat-Light': require('./assets/fonts/Montserrat-Light.ttf'), // 300
     'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.ttf'), // 400
-    'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.ttf'),
+    'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.ttf'), // 500
     'Montserrat-Bold': require('./assets/fonts/Montserrat-Bold.ttf'), // 700
   });
+  if (fontError) {
+    console.log(fontError);
+  }
 
   const { theme, toggleTheme } = useTheme();
-
   const themeContextValue = useMemo(
     () => ({
       theme,
@@ -35,34 +36,24 @@ function AppInner() {
     [theme, toggleTheme],
   );
 
-  const mainGroup = useSelector((appStore) => appStore.mainGroup);
-
   useEffect(() => {
-    async function prepare() {
+    const prepareApp = async () => {
       try {
-        const updateRequired = await checkUpdate(dispatch);
+        const userData = await getDataFromStorage('user');
 
-        await getMainGroup(dispatch);
-
-        if (updateRequired) {
-          await loadGroupsAndSaveFromApi(dispatch);
-
-          if (mainGroup) {
-            await loadMainGroupLessonsAndSaveFromApi(dispatch, mainGroup);
-          }
-        } else {
-          await loadGroupsFromStorage(dispatch);
-          await loadMainGroupLessonsFromStorage(dispatch);
+        if (userData) {
+          dispatch(setUser(userData));
         }
-      } catch (error) {
-        console.log(error.message);
+      } catch (e) {
+        console.log(e);
       } finally {
         setAppIsReady(true);
       }
-    }
+    };
 
-    prepare();
+    prepareApp();
   }, []);
+
 
   if (!fontsLoaded) {
     return null;
@@ -75,12 +66,14 @@ function AppInner() {
         <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
       </ThemeContext.Provider>
     );
-  }
+}
 
   return (
     <ThemeContext.Provider value={themeContextValue}>
-      <Navigation />
-      <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
+      <ToastProvider>
+        <Navigation />
+        <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
+      </ToastProvider>
     </ThemeContext.Provider>
   );
 }
